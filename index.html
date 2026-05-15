@@ -1590,12 +1590,14 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script>
     // CONFIG
     const SUPABASE_URL = 'https://mufgaqqqycrbhhvnfsts.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im11ZmdhcXFxeWNyYmhodm5mc3RzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4NDQ0NTgsImV4cCI6MjA5NDQyMDQ1OH0.ZbMAtB872XFXviHUzOz8od8U0lEnv4oxKJ51VPCZPFU';
+    if (!window.supabase) { console.error('Supabase SDK failed to load!'); }
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 
     const IND_KEY = 'acrylics_ind_v1'; // Legacy
     const COM_KEY = 'acrylics_com_v1'; // Legacy
