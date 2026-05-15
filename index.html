@@ -1112,7 +1112,7 @@
         ✦ Individual<span class="tab-sub">Apply as a collector</span>
       </button>
       <button class="type-tab" id="ptab-com" onclick="switchPublicTab('community')">
-        ◈ ORG<span class="tab-sub">Apply as an org / group</span>
+        ◈ Community<span class="tab-sub">Apply as a community / group</span>
       </button>
     </div>
 
@@ -1193,32 +1193,32 @@
     <div id="com-section" style="display:none">
       <div id="com-form-view">
         <section class="hero">
-          <div class="community-tag">ORG · Collective Apply</div>
-          <h1>Bring Your<br /><em class="blue">ORG</em>.</h1>
-          <p>Is your ORG a fit for Acrylics? Apply for a reserved allocation. Selected ORGs gain exclusive access for
+          <div class="community-tag">Community · Collective Apply</div>
+          <h1>Bring Your<br /><em class="blue">Community</em>.</h1>
+          <p>Is your community a fit for Acrylics? Apply for a reserved allocation. Selected communities gain exclusive access for
             their members.</p>
           <div class="stats" style="border-color:rgba(76,126,201,0.2)">
             <div class="stat" style="border-color:rgba(76,126,201,0.15)"><span class="stat-num"
                 style="color:var(--blue)">111</span><span class="stat-label">Total Supply</span></div>
             <div class="stat" style="border-color:rgba(76,126,201,0.15)"><span class="stat-num"
                 style="color:var(--blue)">1/1</span><span class="stat-label">Each Piece</span></div>
-            <div class="stat"><span class="stat-num" style="color:var(--blue)">ORG</span><span class="stat-label">Group
+            <div class="stat"><span class="stat-num" style="color:var(--blue)">Com</span><span class="stat-label">Group
                 Apply</span></div>
           </div>
         </section>
         <div class="form-wrap community-form">
-          <div class="form-title" style="color:rgba(76,126,201,0.55)">ORG Application</div>
+          <div class="form-title" style="color:rgba(76,126,201,0.55)">Community Application</div>
           <div class="info-box"><strong>Who should apply?</strong> DAOs, NFT communities, collector groups, art
-            collectives, Discord servers, or any organized group with members who appreciate 1/1 art. We review all ORG
+            collectives, Discord servers, or any organized group with members who appreciate 1/1 art. We review all community
             applications and may grant a reserved allocation.</div>
 
-          <div class="section-divider">ORG Identity</div>
+          <div class="section-divider">Community Identity</div>
           <div class="field-row">
-            <div class="field"><label for="c-name">ORG / Project Name</label><input type="text" id="c-name"
+            <div class="field"><label for="c-name">Community / Project Name</label><input type="text" id="c-name"
                 placeholder="e.g. The Collectors DAO" maxlength="100" /></div>
-            <div class="field"><label for="c-type">ORG Type</label><select id="c-type">
+            <div class="field"><label for="c-type">Community Type</label><select id="c-type">
                 <option value="">Select type…</option>
-                <option>NFT ORG / Project</option>
+                <option>NFT Community / Project</option>
                 <option>DAO / Decentralized Org</option>
                 <option>Art Collective</option>
                 <option>Discord / Telegram Server</option>
@@ -1271,7 +1271,7 @@
 
           <div class="section-divider">Why Acrylics?</div>
           <div class="field">
-            <label>Platforms your ORG is active on</label>
+            <label>Platforms your community is active on</label>
             <div class="check-group">
               <label class="check-item"><input type="checkbox" name="cplat" value="Twitter/X" /> Twitter / X</label>
               <label class="check-item"><input type="checkbox" name="cplat" value="Discord" /> Discord</label>
@@ -1282,15 +1282,15 @@
               <label class="check-item"><input type="checkbox" name="cplat" value="Other" /> Other</label>
             </div>
           </div>
-          <div class="field"><label for="c-about">Tell us about your ORG <span
+          <div class="field"><label for="c-about">Tell us about your community <span
                 style="color:var(--muted)">(Required)</span></label><textarea id="c-about"
-              placeholder="What is your ORG about? What brings members together?" maxlength="600"
+              placeholder="What is your community about? What brings members together?" maxlength="600"
               oninput="updateCount(this,'cnt-about',600)"></textarea>
             <div class="char-count"><span id="cnt-about">0</span> / 600</div>
           </div>
           <div class="field"><label for="c-why">Why is Acrylics a fit? <span
                 style="color:var(--muted)">(Required)</span></label><textarea id="c-why"
-              placeholder="How does Acrylics align with your ORG's values, taste, or interests?" maxlength="600"
+              placeholder="How does Acrylics align with your community's values, taste, or interests?" maxlength="600"
               oninput="updateCount(this,'cnt-cwhy',600)"></textarea>
             <div class="char-count"><span id="cnt-cwhy">0</span> / 600</div>
           </div>
@@ -1299,20 +1299,20 @@
               oninput="updateCount(this,'cnt-collab',400)" style="min-height:80px"></textarea>
             <div class="char-count"><span id="cnt-collab">0</span> / 400</div>
           </div>
-          <button class="submit-btn blue-btn" onclick="submitCommunity()">Submit ORG Application →</button>
+          <button class="submit-btn blue-btn" onclick="submitCommunity()">Submit Community Application →</button>
         </div>
       </div>
       <div id="com-success" style="display:none">
         <div class="success-card">
           <span class="success-icon">◈</span>
           <h2 class="blue">Application Received</h2>
-          <p>Thank you for your ORG application.<br />We'll review it and reach out via your contact
-            details.<br /><br /><span style="color:var(--blue)">Great ORGs shape great collections.</span></p>
+          <p>Thank you for your community application.<br />We'll review it and reach out via your contact
+            details.<br /><br /><span style="color:var(--blue)">Great communities shape great collections.</span></p>
         </div>
       </div>
     </div>
 
-    <footer>&copy; 2026 Acrylics · 111 Supply · All pieces are 1/1 &nbsp;·&nbsp; <span id="admin-link"
+    <footer>&copy; 2026 Acrylics · 111 Supply · All pieces are 1/1 &nbsp;·&nbsp; <a href="https://x.com/acrylicartsnft" target="_blank" style="color:var(--muted);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">✕ @acrylicartsnft</a> &nbsp;·&nbsp; <span id="admin-link"
         onclick="showAdminGate()">Admin</span></footer>
   </div>
 
@@ -1345,7 +1345,7 @@
           <h2>Applications <span id="total-badge"></span></h2>
           <div class="admin-controls">
             <button class="btn-sm" onclick="exportCSV('individual')">↓ Individual CSV</button>
-            <button class="btn-sm blue-btn" onclick="exportCSV('community')">↓ ORG CSV</button>
+            <button class="btn-sm blue-btn" onclick="exportCSV('community')">↓ Community CSV</button>
             <button class="btn-sm" onclick="copyAllWallets()">⎘ Copy Wallets</button>
             <button class="btn-sm danger" onclick="clearAll()">✕ Clear All</button>
             <button class="btn-sm" onclick="adminLogout()">← Logout</button>
@@ -1374,7 +1374,7 @@
         <div class="admin-tabs">
           <button class="admin-tab active" id="atab-ind" onclick="switchAdminTab('individual')">✦ Individual <span
               class="tab-count" id="itab-cnt">0</span></button>
-          <button class="admin-tab" id="atab-com" onclick="switchAdminTab('community')">◈ ORG <span class="tab-count"
+          <button class="admin-tab" id="atab-com" onclick="switchAdminTab('community')">◈ Community <span class="tab-count"
               id="ctab-cnt">0</span></button>
         </div>
 
@@ -1424,7 +1424,7 @@
         <!-- ORG table -->
         <div id="admin-com" style="display:none">
           <div class="filters">
-            <input class="filter-input" id="c-search" placeholder="Search ORG name, contact, Twitter…"
+            <input class="filter-input" id="c-search" placeholder="Search community name, contact, Twitter…"
               oninput="renderCom()" />
             <select class="filter-select" id="c-status-f" onchange="renderCom()">
               <option value="">All Statuses</option>
@@ -1439,7 +1439,7 @@
             </select>
           </div>
           <div class="export-bar blue">
-            <span id="c-showing">Showing 0 ORG applications</span>
+            <span id="c-showing">Showing 0 community applications</span>
             <button class="btn-sm blue-btn" onclick="approveFiltered('community')">✓ Approve All Filtered</button>
           </div>
           <div class="table-wrap blue-border">
@@ -1447,7 +1447,7 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>ORG</th>
+                  <th>Community</th>
                   <th>Type</th>
                   <th>Members</th>
                   <th>Contact</th>
@@ -1461,7 +1461,7 @@
               </thead>
               <tbody id="c-tbody"></tbody>
             </table>
-            <div id="c-empty" class="empty-state" style="display:none">No ORG applications yet.</div>
+            <div id="c-empty" class="empty-state" style="display:none">No community applications yet.</div>
           </div>
         </div>
       </div>
@@ -1521,7 +1521,7 @@
   <div class="modal-overlay" id="c-modal">
     <div class="modal blue-modal">
       <div class="modal-head">
-        <h3 class="blue" id="cm-name">ORG</h3><button class="modal-close" onclick="closeModal('c-modal')">✕
+        <h3 class="blue" id="cm-name">Community</h3><button class="modal-close" onclick="closeModal('c-modal')">✕
           Close</button>
       </div>
       <div class="modal-grid">
@@ -1661,9 +1661,9 @@
       const contact = document.getElementById('c-contact').value.trim();
       const about = document.getElementById('c-about').value.trim();
       const why = document.getElementById('c-why').value.trim();
-      if (!name) return alert('Please enter your ORG name.');
+      if (!name) return alert('Please enter your community name.');
       if (!contact) return alert('Please enter a contact name.');
-      if (!about) return alert('Please tell us about your ORG.');
+      if (!about) return alert('Please tell us about your community.');
       if (!why) return alert('Please explain why Acrylics is a fit.');
       const platforms = [...document.querySelectorAll('input[name="cplat"]:checked')].map(c => c.value).join(', ') || 'Not specified';
       const app = { name, ctype: document.getElementById('c-type').value, website: document.getElementById('c-website').value.trim(), members: document.getElementById('c-members').value, contact, email: document.getElementById('c-email').value.trim(), twitter: document.getElementById('c-twitter').value.trim(), discord: document.getElementById('c-discord').value.trim(), telegram: document.getElementById('c-telegram').value.trim(), spots: document.getElementById('c-spots').value, wallet: document.getElementById('c-wallet').value.trim(), platforms, about, why, collab: document.getElementById('c-collab').value.trim() };
@@ -1781,7 +1781,7 @@
     function renderCom() {
       const filtered = getFilteredCom(), all = getCom();
       const tbody = document.getElementById('c-tbody');
-      document.getElementById('c-showing').textContent = `Showing ${filtered.length} of ${all.length} ORG applications`;
+      document.getElementById('c-showing').textContent = `Showing ${filtered.length} of ${all.length} community applications`;
       document.getElementById('c-empty').style.display = filtered.length === 0 ? 'block' : 'none';
       tbody.innerHTML = '';
       filtered.forEach((app, i) => {
@@ -1794,7 +1794,7 @@
     }
 
     async function setCStatus(id, status) { await supabase.from('community_applications').update({ status }).eq('id', id); await fetchCom(); renderCom(); if (document.getElementById('c-modal').classList.contains('open')) openCModal(id); }
-    async function deleteCom(id) { if (!confirm('Delete this ORG application?')) return; await supabase.from('community_applications').delete().eq('id', id); await fetchCom(); renderCom(); closeModal('c-modal'); }
+    async function deleteCom(id) { if (!confirm('Delete this community application?')) return; await supabase.from('community_applications').delete().eq('id', id); await fetchCom(); renderCom(); closeModal('c-modal'); }
 
     // APPROVE ALL FILTERED
     async function approveFiltered(type) {
@@ -1880,7 +1880,7 @@
         headers = ['#', 'Name', 'Wallet', 'Email', 'Twitter', 'Discord', 'Experience', 'Source', 'Status', 'Applied', 'Why', 'Favorite Art'];
         rows = apps.map((a, i) => [i + 1, a.name, a.wallet, a.email, a.twitter, a.discord, a.experience, a.source, a.status, new Date(a.created_at).toISOString(), `"${(a.why || '').replace(/"/g, '""')}"`, `"${(a.favorite || '').replace(/"/g, '""')}"`]);
       } else {
-        headers = ['#', 'ORG', 'Type', 'Members', 'Contact', 'Email', 'Twitter', 'Discord', 'Telegram', 'Spots', 'Wallet', 'Platforms', 'Status', 'Applied', 'About', 'Why Acrylics', 'Collab Ideas'];
+        headers = ['#', 'Community', 'Type', 'Members', 'Contact', 'Email', 'Twitter', 'Discord', 'Telegram', 'Spots', 'Wallet', 'Platforms', 'Status', 'Applied', 'About', 'Why Acrylics', 'Collab Ideas'];
         rows = apps.map((a, i) => [i + 1, a.name, a.ctype, a.members, a.contact, a.email, a.twitter, a.discord, a.telegram, a.spots, a.wallet, a.platforms, a.status, new Date(a.created_at).toISOString(), `"${(a.about || '').replace(/"/g, '""')}"`, `"${(a.why || '').replace(/"/g, '""')}"`, `"${(a.collab || '').replace(/"/g, '""')}"`]);
       }
       const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
