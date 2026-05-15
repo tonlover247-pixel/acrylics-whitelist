@@ -1595,8 +1595,8 @@
     // CONFIG
     const SUPABASE_URL = 'https://mufgaqqqycrbhhvnfsts.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im11ZmdhcXFxeWNyYmhodm5mc3RzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4NDQ0NTgsImV4cCI6MjA5NDQyMDQ1OH0.ZbMAtB872XFXviHUzOz8od8U0lEnv4oxKJ51VPCZPFU';
-    if (!window.supabase) { console.error('Supabase SDK failed to load!'); }
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Use _sb to avoid shadowing the UMD bundle's own `var supabase` global
+    const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 
     const IND_KEY = 'acrylics_ind_v1'; // Legacy
@@ -1607,13 +1607,13 @@
     let comData = [];
 
     async function fetchInd() {
-      const { data, error } = await supabase.from('individual_applications').select('*').order('created_at', { ascending: false });
+      const { data, error } = await _sb.from('individual_applications').select('*').order('created_at', { ascending: false });
       if (error) console.error('Error fetching ind:', error);
       indData = data || [];
     }
 
     async function fetchCom() {
-      const { data, error } = await supabase.from('community_applications').select('*').order('created_at', { ascending: false });
+      const { data, error } = await _sb.from('community_applications').select('*').order('created_at', { ascending: false });
       if (error) console.error('Error fetching com:', error);
       comData = data || [];
     }
@@ -1647,7 +1647,7 @@
       const source = [...document.querySelectorAll('input[name="isource"]:checked')].map(c => c.value).join(', ') || 'Not specified';
       const app = { name, wallet, email: document.getElementById('f-email').value.trim(), twitter: document.getElementById('f-twitter').value.trim(), discord: document.getElementById('f-discord').value.trim(), experience: document.getElementById('f-exp').value, source, why, favorite: document.getElementById('f-fav').value.trim() };
 
-      const { error } = await supabase.from('individual_applications').insert([app]);
+      const { error } = await _sb.from('individual_applications').insert([app]);
       if (error) {
         console.error('Error submitting:', error);
         return alert('There was an error submitting your application. Please try again.');
@@ -1670,7 +1670,7 @@
       const platforms = [...document.querySelectorAll('input[name="cplat"]:checked')].map(c => c.value).join(', ') || 'Not specified';
       const app = { name, ctype: document.getElementById('c-type').value, website: document.getElementById('c-website').value.trim(), members: document.getElementById('c-members').value, contact, email: document.getElementById('c-email').value.trim(), twitter: document.getElementById('c-twitter').value.trim(), discord: document.getElementById('c-discord').value.trim(), telegram: document.getElementById('c-telegram').value.trim(), spots: document.getElementById('c-spots').value, wallet: document.getElementById('c-wallet').value.trim(), platforms, about, why, collab: document.getElementById('c-collab').value.trim() };
 
-      const { error } = await supabase.from('community_applications').insert([app]);
+      const { error } = await _sb.from('community_applications').insert([app]);
       if (error) {
         console.error('Error submitting:', error);
         return alert('There was an error submitting your application. Please try again.');
@@ -1687,7 +1687,7 @@
       const password = document.getElementById('a-pass').value;
       if (!email || !password) return alert('Please enter email and password.');
 
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { error } = await _sb.auth.signInWithPassword({ email, password });
       if (error) {
         alert('Incorrect credentials: ' + error.message);
         document.getElementById('a-pass').value = '';
@@ -1699,7 +1699,7 @@
       }
     }
     async function adminLogout() {
-      await supabase.auth.signOut();
+      await _sb.auth.signOut();
       document.getElementById('admin-gate-view').style.display = 'block';
       document.getElementById('admin-dashboard').style.display = 'none';
       document.getElementById('a-email').value = '';
@@ -1763,8 +1763,8 @@
       updateStats();
     }
 
-    async function setIStatus(id, status) { await supabase.from('individual_applications').update({ status }).eq('id', id); await fetchInd(); renderInd(); if (document.getElementById('i-modal').classList.contains('open')) openIModal(id); }
-    async function deleteInd(id) { if (!confirm('Delete this application?')) return; await supabase.from('individual_applications').delete().eq('id', id); await fetchInd(); renderInd(); closeModal('i-modal'); }
+    async function setIStatus(id, status) { await _sb.from('individual_applications').update({ status }).eq('id', id); await fetchInd(); renderInd(); if (document.getElementById('i-modal').classList.contains('open')) openIModal(id); }
+    async function deleteInd(id) { if (!confirm('Delete this application?')) return; await _sb.from('individual_applications').delete().eq('id', id); await fetchInd(); renderInd(); closeModal('i-modal'); }
 
     // ORG TABLE
     function getFilteredCom() {
@@ -1795,19 +1795,19 @@
       updateStats();
     }
 
-    async function setCStatus(id, status) { await supabase.from('community_applications').update({ status }).eq('id', id); await fetchCom(); renderCom(); if (document.getElementById('c-modal').classList.contains('open')) openCModal(id); }
-    async function deleteCom(id) { if (!confirm('Delete this community application?')) return; await supabase.from('community_applications').delete().eq('id', id); await fetchCom(); renderCom(); closeModal('c-modal'); }
+    async function setCStatus(id, status) { await _sb.from('community_applications').update({ status }).eq('id', id); await fetchCom(); renderCom(); if (document.getElementById('c-modal').classList.contains('open')) openCModal(id); }
+    async function deleteCom(id) { if (!confirm('Delete this community application?')) return; await _sb.from('community_applications').delete().eq('id', id); await fetchCom(); renderCom(); closeModal('c-modal'); }
 
     // APPROVE ALL FILTERED
     async function approveFiltered(type) {
       if (!confirm(`Approve all filtered ${type} applications?`)) return;
       if (type === 'individual') {
         const ids = getFilteredInd().map(a => a.id);
-        if (ids.length) await supabase.from('individual_applications').update({ status: 'approved' }).in('id', ids);
+        if (ids.length) await _sb.from('individual_applications').update({ status: 'approved' }).in('id', ids);
         await fetchInd(); renderInd();
       } else {
         const ids = getFilteredCom().map(a => a.id);
-        if (ids.length) await supabase.from('community_applications').update({ status: 'approved' }).in('id', ids);
+        if (ids.length) await _sb.from('community_applications').update({ status: 'approved' }).in('id', ids);
         await fetchCom(); renderCom();
       }
     }
@@ -1816,8 +1816,8 @@
     async function clearAll() {
       if (!confirm('Delete ALL applications?')) return;
       if (!confirm('Final warning — permanent.')) return;
-      await supabase.from('individual_applications').delete().neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all
-      await supabase.from('community_applications').delete().neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all
+      await _sb.from('individual_applications').delete().neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all
+      await _sb.from('community_applications').delete().neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all
       await renderAll();
     }
 
